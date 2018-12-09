@@ -1,5 +1,4 @@
-import { Component, OnInit} from '@angular/core';
-import { ApiService } from '../store/api.service';
+import { Component, OnInit, Input} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Store} from '@ngrx/store';
 import {State} from '../store/reducers';
@@ -12,6 +11,8 @@ import {LoadMissionTypes, MissionTypesLoaded} from '../store/reducers/missionTyp
   templateUrl: './filtrado.component.html'
 })
 export class FiltradoComponent implements OnInit {
+  public title: string = "Ejercicio 4 - Progresive Web Applications";
+  @Input() version: string = "1.0";
   optionsForm: FormGroup;
   options = ['Estado', 'Agencia', 'Tipo'];
   counter = {length: 0, message: 'Resultados encontrados'};
@@ -20,7 +21,9 @@ export class FiltradoComponent implements OnInit {
   public statuses: any[];
   public missionTypes: any[];
 
-  constructor( private service: ApiService, private fb: FormBuilder, private store: Store<State>) {}
+  constructor( 
+    private fb: FormBuilder, 
+    private store: Store<State>) {}
 
   ngOnInit(): void {
     this.optionsForm = this.fb.group({

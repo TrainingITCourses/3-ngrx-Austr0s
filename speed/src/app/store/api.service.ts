@@ -7,20 +7,21 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
+  private url = environment.url;
   constructor(private http: HttpClient) {}
 
   public getAgencies = (): Observable<any[]> =>
     this.http
-      .get(environment.url + '/assets/data/agencies.json')
+      .get(this.url + '/assets/data/agencies.json')
       .pipe(map((res: any) => res.agencies))
 
   public getMissionTypes = (): Observable<any[]> =>
     this.http
-      .get(environment.url + '/assets/data/missiontypes.json')
+      .get(this.url + '/assets/data/missiontypes.json')
       .pipe(map((res: any) => res.types))
 
   public getStatusTypes = (): Observable<any> =>
     this.http
-    .get(environment.url + '/assets/data/launchstatus.json')
+    .get(this.url + '/assets/data/launchstatus.json')
     .pipe(map((res: any) => res.types))
 }

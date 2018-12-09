@@ -9,7 +9,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve -o --port 4219",
-    "build": "ng build --prod",
+    "build": "ng build",
+    "prod": "ng build --prod",
+    "http": "cd ./dist/speed && http-server -c-1",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -25,7 +27,9 @@
     "@angular/http": "~7.0.0",
     "@angular/platform-browser": "~7.0.0",
     "@angular/platform-browser-dynamic": "~7.0.0",
+    "@angular/pwa": "^0.8.8",
     "@angular/router": "~7.0.0",
+    "@angular/service-worker": "^7.0.4",
     "@ngrx/store": "^6.1.2",
     "@ngrx/store-devtools": "^6.1.2",
     "core-js": "^2.5.4",

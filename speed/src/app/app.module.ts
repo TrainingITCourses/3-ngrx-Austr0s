@@ -16,6 +16,7 @@ import {EffectsModule} from '@ngrx/effects';
 import {AgenciesEffects} from './store/reducers/agencies/agencies.effects';
 import {MissionTypesEffects} from './store/reducers/missionTypes/mission-types.effects';
 import {StatusesEffects} from './store/reducers/statuses/statuses.effects';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 
 @NgModule({
@@ -33,9 +34,14 @@ import {StatusesEffects} from './store/reducers/statuses/statuses.effects';
     LayoutModule,
     StoreModule.forRoot(reducers, {metaReducers}),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    EffectsModule.forRoot([AgenciesEffects, MissionTypesEffects, StatusesEffects])
+    EffectsModule.forRoot([AgenciesEffects, MissionTypesEffects, StatusesEffects]),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+
+
+}
